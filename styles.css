@@ -1,0 +1,90 @@
+/* ---------- базовый Dark Theme + градиент ---------- */
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+    font-family:system-ui, sans-serif;
+    background: linear-gradient(135deg, #ff6f00, #000000);
+    color:#e0e0e0;
+    min-height:100vh;
+}
+
+/* ---------- Glassmorphism (полупрозрачные карточки) ---------- */
+.glass {
+    background: rgba(20,20,20,.45);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 1rem;
+}
+
+/* ---------- хедер ---------- */
+header {
+    display:flex; flex-direction:column; align-items:center;
+    position:relative;
+    margin:1rem;
+}
+header h1 { margin-bottom:.5rem; }
+.cat { display:flex; flex-direction:column; align-items:center; }
+.cat img { width:100px; height:100px; }
+.help-btn {
+    position:absolute; top:1rem; right:1rem;
+    background:#ffca28; border:none; padding:.4rem .8rem;
+    border-radius:4px; cursor:pointer; font-weight:bold;
+    transition: transform .15s ease, background .15s ease;
+}
+.help-btn:hover { transform:scale(1.12); background:#ffa726; }
+
+/* ---------- календарь ---------- */
+.month-selector { display:flex; justify-content:center; gap:.5rem; margin-bottom:.8rem; }
+.month-selector button {
+    background:#1976d2; color:#fff; border:none; padding:.3rem .6rem;
+    border-radius:4px; cursor:pointer;
+    transition: transform .15s ease, background .15s ease;
+}
+.month-selector button:hover { transform:scale(1.12); background:#2196f3; }
+.month-selector span { font-weight:bold; line-height:2; }
+
+table { width:100%; border-collapse:collapse; table-layout:fixed; }
+th, td { padding:.4rem; text-align:center; font-size:.95rem; }
+td { cursor:pointer; border-radius:6px; transition: background .2s; }
+td.empty { cursor:default; }
+td.today { background:rgba(255,202,40,.3); }
+td.selected {
+    /* mesh‑gradient (индиго‑пурпурный) */
+    background: #4a00e0; /* fallback */
+    background-image: 
+        radial-gradient(at 20% 20%, #4a00e0 0%, transparent 50%),
+        radial-gradient(at 80% 20%, #8e2de2 0%, transparent 50%),
+        radial-gradient(at 20% 80%, #8e2de2 0%, transparent 50%),
+        radial-gradient(at 80% 80%, #4a00e0 0%, transparent 50%);
+    background-blend-mode: screen;
+    color:#fff;
+}
+td.has-tasks { background:rgba(200,230,200,.2); }
+
+/* ---------- задачи ---------- */
+.task-panel .add-task { display:flex; gap:.5rem; margin-bottom:1rem; }
+#addTaskBtn {
+    padding:.4rem .8rem; background:#4caf50; color:#fff;
+    border:none; border-radius:4px; cursor:pointer;
+    font-size:1.2rem; transition: transform .15s;
+}
+#addTaskBtn:hover { transform:scale(1.12); }
+
+ul { list-style:none; }
+li { display:flex; align-items:center; gap:.5rem; padding:.3rem 0; }
+li.completed label { text-decoration:line-through; color:#777; }
+li input[type="checkbox"] { width:1rem; height:1rem; }
+
+/* ---------- модальные окна ---------- */
+.modal { position:fixed; inset:0; background:rgba(0,0,0,.6);
+         display:flex; align-items:center; justify-content:center; }
+.modal.hidden { display:none; }
+.modal-content { max-width:500px; width:90%; position:relative; }
+
+/* ---------- footer ---------- */
+footer { text-align:center; margin:2rem; }
+
+/* ---------- общие кнопки ---------- */
+button { transition: transform .15s ease, background .15s ease; }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Planner‑Cat 2026‑2035 • Dark Theme</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="glass">
+    <h1>Planner‑Cat 2026‑2035</h1>
+    <div class="cat">
+        <img src="cat-normal.png" alt="Кот" id="catImg">
+        <p id="catState">Нормальный кот</p>
+    </div>
+    <button id="showHelp" class="help-btn">❓ Инструкция</button>
+</header>
+
+<main>
+    <section class="calendar glass">
+        <h2>Календарь</h2>
+
+        <div class="month-selector">
+            <button id="prevMonth">←</button>
+            <span id="monthLabel"></span>
+            <button id="nextMonth">→</button>
+        </div>
+
+        <table id="calendarTable">
+            <thead>
+                <tr><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th>
+                    <th>Пт</th><th>Сб</th><th>Вс</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section class="task-panel glass">
+        <h2>Задачи на выбранный день</h2>
+
+        <div class="add-task">
+            <button id="addTaskBtn">+</button>
+        </div>
+
+        <select id="filterSelect">
+            <option value="">Все задачи</option>
+        </select>
+
+        <ul id="taskList"></ul>
+    </section>
+</main>
+
+<footer class="glass">
+    <p>© 2026‑2035 Planner‑Cat. Все права защищены.</p>
+</footer>
+
+<!-- Инструкция -->
+<div id="helpModal" class="modal hidden">
+    <div class="modal-content glass">
+        <span class="close" id="closeHelp">&times;</span>
+        <h2>Как пользоваться Planner‑Cat</h2>
+        <ol>
+            <li>Выберите любой день в календаре.</li>
+            <li>Нажмите <strong>+</strong>, введите задачу и подтвердите.</li>
+            <li>Отметьте галочкой выполненные задачи.</li>
+            <li>Кот меняет настроение в зависимости от выполненности.</li>
+            <li>Невыполненные задачи автоматически переносятся на следующий день.</li>
+        </ol>
+    </div>
+</div>
+
+<!-- Окно создания задачи -->
+<div id="taskModal" class="modal hidden">
+    <div class="modal-content glass">
+        <span class="close" id="closeTask">&times;</span>
+        <h2>Новая задача</h2>
+        <label>Текст:<br>
+            <input type="text" id="taskText" style="width:100%">
+        </label><br><br>
+        <label>Время (HH:MM):<br>
+            <input type="time" id="taskTime">
+        </label><br><br>
+        <label>Повтор:<br>
+            <select id="taskRepeat">
+                <option value="">—</option>
+                <option value="daily">Ежедневно</option>
+                <option value="weekly">Еженедельно</option>
+                <option value="monthly">Ежемесячно</option>
+            </select>
+        </label><br><br>
+        <label>Тег:<br>
+            <input type="text" id="taskTag" placeholder="например, работа">
+        </label><br><br>
+        <button id="saveTaskBtn">Сохранить</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
